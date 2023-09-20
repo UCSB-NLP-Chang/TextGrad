@@ -1,3 +1,4 @@
+import os
 from src.eval.eval_util import GPT2_processor
 from src.data_util.dataloader import get_task_type
 import pickle
@@ -78,6 +79,7 @@ print("fail: ",fail)
 print("attack success rate: ", success / (success + fail))
 print("avg ppl: ", np.mean(ppl_by_sample))
 
+os.makedirs("adv_examples", exist_ok=True)
 
 save_name = f"adv_examples/attack_{args.victim}_{args.dataset}.txt"
 assert len(adv_by_sample) == len(orig_sentences)
