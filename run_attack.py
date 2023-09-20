@@ -3,6 +3,11 @@ import numpy as np
 import torch
 import pickle
 import os
+
+import nltk
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
+
 from src.logging.logger import LogModule
 from src.attack.text_grad import PGDAttack
 
